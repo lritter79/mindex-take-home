@@ -1,0 +1,58 @@
+# Ignore the build output directory
+*/bin/
+*/obj/
+
+# Ignore user-specific files
+.idea/
+.vs/
+.vscode/
+# Windows user-specific files
+Thumbs.db
+Desktop.ini
+
+# MacOS user-specific files
+.DS_Store
+
+# ASP.NET Core temporary files
+appsettings.Development.json
+
+# Ignore the .NET Core SDK and runtime-related directories
+*/.dotnet/
+# Package directories
+.nuget/
+
+# Ignore the project file analysis
+# VS Code settings for remote dev
+.vscode/settings.json
+
+# Ignore the build outputs in .NET SDK-based projects
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Ignore local test results
+TestResults/
+
+# Ignore the publish output
+publish/
+
+# Ignore Rider (JetBrains IDE) config
+.idea/
+
+# Ignore log files and folders
+*.log
+
+# Ignore the NuGet package cache
+*/.nuget/packages/
+
+# Ignore dotnet tool cache
+*/.dotnet/tools/
+
+# User-specific files (for Visual Studio, Rider, etc.)
+# VS Code workspace config files
+.vscode/
+
+# Ignore the global.json (optional, if you don't want it in source control)
+global.json
+
+.zshrc
