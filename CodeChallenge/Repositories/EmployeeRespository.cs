@@ -89,7 +89,18 @@ namespace CodeChallenge.Repositories
 
         public Compensation Add(Compensation compensation)
         {
-            _employeeContext.Compensations.Add(compensation);
+            var existingCompensation = _employeeContext.Compensations
+                .SingleOrDefault(c => c.Employee.EmployeeId == compensation.Employee.EmployeeId);
+
+            if (existingCompensation == null)
+            {
+                _employeeContext.Compensations.Add(compensation);
+            }
+            else
+            {
+                compensation.CompensationId = existingCompensation.CompensationId;
+                _employeeContext.Entry(existingCompensation).CurrentValues.SetValues(compensation);
+            }
             return compensation;
         }
     }

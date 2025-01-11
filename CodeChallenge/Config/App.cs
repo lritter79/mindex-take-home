@@ -20,7 +20,7 @@ namespace CodeChallenge.Config
             var builder = WebApplication.CreateBuilder(args);
 
             builder.UseEmployeeDB();
-            
+
             AddServices(builder.Services);
 
             var app = builder.Build();
@@ -50,8 +50,10 @@ namespace CodeChallenge.Config
 
         private void SeedEmployeeDB()
         {
-            
-            
+            new EmployeeDataSeeder(
+    new EmployeeContext(
+        new DbContextOptionsBuilder<EmployeeContext>().UseInMemoryDatabase("EmployeeDB").Options
+)).Seed().Wait();
         }
     }
 }
