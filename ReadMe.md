@@ -112,8 +112,17 @@ Please upload your results to a publicly accessible Git repo. Free ones are prov
 - CREATE
   - HTTP Method: POST
   - URL: localhost:8080/api/employee/{id}/compensation
-  - PAYLOAD: {salary: number as string}
+  - PAYLOAD: Salary as a string, ex. "1000"
   - RESPONSE: Compensation
+
+Here's what it looks like if if you try adding a compensation with cURL:
+
+```
+curl --header "Content-Type: application/json" \
+  --request POST \
+  --data "\"8198444440\"" \
+  http://localhost:8080/api/employee/c0c2293d-16bd-4603-8e08-638a9d18b22c/compensation
+```
 
 ### ReportingStructure
 
