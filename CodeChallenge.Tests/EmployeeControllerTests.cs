@@ -154,5 +154,23 @@ namespace CodeCodeChallenge.Tests.Integration
             Assert.AreEqual(expectedLastName, reportingStructure.Employee.LastName);
             Assert.AreEqual(expectedNumberOfReports, reportingStructure.NumberOfReports);
         }
+
+        [TestMethod]
+        public void GetCompensation_Returns_Correct()
+        {
+            // Arrange
+            var employeeId = "16a596ae-edd3-4847-99fe-c4518e82c86f";
+            int expectedCompensation = 4000;
+
+            // Execute
+            var getRequestTask = _httpClient.PostAsync($"api/employee/{employeeId}/compensation",
+               new StringContent("4000", Encoding.UTF8, "application/json"));
+            var response = getRequestTask.Result;
+
+            // Assert
+            Assert.AreEqual(HttpStatusCode.Created, response.StatusCode);
+            var compensation = response.DeserializeContent<Compensation>();
+            Assert.AreEqual(expectedCompensation, compensation.Salary);
+        }
     }
 }
