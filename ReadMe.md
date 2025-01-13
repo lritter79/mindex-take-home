@@ -129,4 +129,8 @@ curl --header "Content-Type: application/json" \
 - READ
   - HTTP Method: GET
   - URL: localhost:8080/api/employee/{id}/reporting
-  - RESPONSE: Compensation
+  - RESPONSE: ReportingStructure
+
+```
+curl localhost:8080/api/employee/16a596ae-edd3-4847-99fe-c4518e82c86f/reporting
+```
